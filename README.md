@@ -1,6 +1,6 @@
-# Boleiros de Sábado 🏆⚽
+# Boleiros de Sábado ⚽🔥
 
-Este é um sistema web desenvolvido em PHP para gerenciar o time amador **Boleiros de Sábado**, permitindo controle de enquetes, presenças, sorteio de times, histórico do time, patrocinadores, melhor em campo, ranking de jogadores, álbum de fotos e muito mais.
+Este é um sistema web em PHP desenvolvido para o time amador **Boleiros de Sábado**, com foco em interação, gestão de jogadores, votação, finanças e organização dos jogos. O sistema possui uma área pública com informações e uma área administrativa para gerenciar o conteúdo.
 
 ---
 
@@ -9,24 +9,25 @@ Este é um sistema web desenvolvido em PHP para gerenciar o time amador **Boleir
 - ✅ Votação da enquete da semana
 - ✅ Confirmação de presença para os jogos
 - ✅ Sorteio automático dos times
-- ✅ Votação do "Melhor em Campo" por posição
-- ✅ Ranking de jogadores por desempenho
+- ✅ Votação de "Melhor em Campo" por posição
+- ✅ Ranking dos jogadores por pontuação
+- ✅ Controle de mensalidades e receitas/despesas
+- ✅ Cadastro de provisões financeiras
 - ✅ Cadastro e exibição de patrocinadores
 - ✅ Álbum de fotos com carrossel
-- ✅ Página "Sobre o Time"
-- ✅ Área administrativa com painel de controle
-- ✅ Integração com banco de dados MySQL/MariaDB
+- ✅ Página “Sobre o Time”
+- ✅ Área administrativa com permissões
 
 ---
 
 ## 💻 Tecnologias utilizadas
 
 - PHP 7+
+- MySQL/MariaDB
+- Bootstrap 4
 - HTML5, CSS3, JavaScript
-- Bootstrap (para o layout)
-- MySQL ou MariaDB
-- Composer (gerenciador de dependências PHP)
-- DOMPDF (para geração de PDFs, se necessário)
+- Composer (dependências PHP)
+- DOMPDF (se geração de PDFs estiver ativa)
 
 ---
 
@@ -36,35 +37,71 @@ Este é um sistema web desenvolvido em PHP para gerenciar o time amador **Boleir
 
 ```bash
 git clone https://github.com/valdecirsevergnini/site-jogo.git
-2. Entre na pasta do projeto
-
 cd site-jogo
-3. Instale as dependências do PHP
+2. Instale as dependências PHP
+
 composer install
-Se você não tem o Composer instalado, baixe em: https://getcomposer.org/
+⚠️ Se não tiver o Composer: https://getcomposer.org/
 
 🛠️ Configuração do Banco de Dados
-1. Crie o banco de dados MySQL com o nome: de sua escolha
+1. Crie o banco de dados:
 
-CREATE DATABASE boleiros DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-2. Importe o arquivo .sql que acompanha o projeto
-mysql -u root -p boleiros < boleiros.sql
-3. Configure a conexão com o banco
-No arquivo config/database.php:
+CREATE DATABASE u981260588_boleiros DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+2. Importe o arquivo SQL
+O arquivo de estrutura e dados está em: database/u981260588_boleiros.sql
+
+No phpMyAdmin:
+
+Selecione o banco u981260588_boleiros
+
+Clique em Importar
+
+Envie o arquivo u981260588_boleiros.sql
+
+Ou via terminal MySQL:
+
+
+mysql -u root -p u981260588_boleiros < database/u981260588_boleiros.sql
+3. Configure a conexão no projeto
+No arquivo config/database.php (ou similar):
+
 
 $host = 'localhost';
 $dbname = 'boleiros';
 $user = 'root';
 $pass = '';
 ▶️ Como rodar o sistema
-Inicie um servidor local (XAMPP, Laragon, Wamp etc.)
+Inicie seu servidor local (XAMPP, Laragon ou similar)
 
-Coloque o projeto na pasta htdocs
+Coloque o projeto em htdocs ou www
 
-Acesse:
+Acesse no navegador:
 
 http://localhost/site-jogo/
-A área administrativa fica em /painel
+A área administrativa geralmente está em:
+
+http://localhost/site-jogo/painel/
+Usuário padrão no banco:
+
+Usuário: admin
+
+Senha: crie uma nova senha com hash
+
+⚠️ Você pode atualizar a senha direto no banco ou implementar sistema de login seguro.
+
+📂 Estrutura de diretórios
+/painel: área administrativa
+
+/config: configurações de banco e autenticação
+
+/img: imagens do site
+
+/database: dump SQL do banco
+
+/uploads: arquivos enviados pelos usuários
 
 👨‍💻 Autor
-Projeto desenvolvido por Valdecir Severgnini
+Desenvolvido por Valdecir Severgnini
+
+📝 Licença
+Uso livre para fins pessoais e educacionais. Projeto open-source.
